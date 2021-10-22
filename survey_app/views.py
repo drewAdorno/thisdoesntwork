@@ -20,6 +20,10 @@ def process_post(request):
     }
 
     request.session['list_of_posts'].append(temp)
+
+    # https://docs.djangoproject.com/en/2.2/topics/http/sessions/#when-sessions-are-saved
+    request.session.modified = True
+    
     return redirect('/')
 
 def clear_session(request):
